@@ -15,8 +15,8 @@ final class UserTest extends TestCase {
         $result = UserService::retrieve();
 
         $this->assertIsArray($result);
-
-        print_r($result);
+        $this->assertArrayHasKey('email', $result);
+        $this->assertArrayHasKey('activeSubscription', $result);
     }
 
     public function testGetAlertContacts(): void {
@@ -24,6 +24,20 @@ final class UserTest extends TestCase {
 
         $this->assertIsArray($result);
 
-        print_r($result);
+        foreach($result as $alert) {
+            $this->assertIsArray($alert);
+            $this->assertArrayHasKey('id', $alert);
+        }
+    }
+
+    public function testGetAllAlerts(): void {
+        $result = UserService::allAlertContacts();
+
+        $this->assertIsArray($result);
+
+        foreach($result as $contact) {
+            $this->assertIsArray($contact);
+            $this->assertArrayHasKey('user', $contact);
+        }
     }
 }
