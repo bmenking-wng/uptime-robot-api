@@ -1,0 +1,24 @@
+{
+    "name": "worlddevs/uptime-robot-api",
+    "description": "A wrapper library for UptimeRobot API",
+    "type": "library",
+    "license": "BSD 3-Clause License",
+    "authors": [
+        {
+            "name": "Ben Menking",
+            "email": "bmenking@wng.org"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "worlddevs\\uptimerobot\\": "src/"
+        }
+    },
+    "require-dev": {
+        "vlucas/phpdotenv": "^5.6",
+        "phpunit/phpunit": "^12.5"
+    }
+}
