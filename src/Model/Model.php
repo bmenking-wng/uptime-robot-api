@@ -37,14 +37,28 @@ class Model {
     }
 
     public function canCreate(): bool {
-        return count(array_diff_key($this->required, $this->attributes)) == 0;
+        return $this->array_keys_exist($this->required, $this->attributes);
     }
 
     public function canUpdate(): bool {
-        return count(array_diff_key($this->changeable, $this->attributes)) == 0;
+        return $this->array_keys_exist($this->changeable, $this->attributes);
     }
 
     public function asArray(): array {
         return $this->attributes;
     }
+
+    /**
+     * Using the values from $required as key names, make sure $haystack has all those values as keys.
+     * @param array $required 
+     * @param array $haystack 
+     * @return bool 
+     */
+    private function array_keys_exist(Array $required, Array $haystack): bool {
+        foreach($required as $key) {
+            if( !array_key_exists($key, $haystack) ) return false;
+        }
+
+        return true;
+    }    
 }
