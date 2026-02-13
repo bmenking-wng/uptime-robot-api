@@ -19,12 +19,12 @@ or add it by hand to your `composer.json` file.
 
 ## Upgrading
 
-Breaking changes may occur between major releases: [semantic versioning](https://semver.org/).
+We are using [semantic versioning](https://semver.org/).  Breaking changes _may_ occur on major releases.
 We would provide upgrade guides for major version upgrades, when that happens.
 
 ## Usage
 
-You'll need the endpoint and API key.  Currently UptimeRobot API version 3 (v3) is suppported.
+You'll need the endpoint and API key from UptimeRobot [instructions](https://uptimerobot.com/api/v3/#auth).  Currently UptimeRobot API version 3 (v3) is suppported.
 
 Get started with a simple example:
 
@@ -57,3 +57,17 @@ Array
 
 )
 ```
+
+## Available Services
+
+The following are supported:
+
+- Incident
+- Integration
+- Maintenance Windows
+- Monitor Groups
+- Monitor
+- Public status page Announcements (new)
+- Public status pages
+- Tags
+- User
