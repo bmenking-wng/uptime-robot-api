@@ -24,7 +24,7 @@ class MaintaintenceWindowService extends Service {
      */
     public static function create(MaintenanceWindowModel $model): array|bool {
         if( $model->canCreate() ) {
-            return self::makeCall("/v3/maintenance-windows", 'POST', $model->asArray());
+            return self::makeCall("/v3/maintenance-windows", 'POST', [], $model->asArray());
         }
         else {
             return false;
@@ -57,7 +57,7 @@ class MaintaintenceWindowService extends Service {
      */
     public static function update($id, MaintenanceWindowModel $model): array|bool {
         if( $model->canUpdate() ) {
-            return self::makeCall("/v3/maintenance-windows/$id", 'PATCH', $model->asArray());
+            return self::makeCall("/v3/maintenance-windows/$id", 'PATCH', [], $model->asArray());
         }
         else {
             return false;

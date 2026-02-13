@@ -33,7 +33,7 @@ class PSPAnnouncementService extends Service {
      */
     public static function createAnnouncement($psp_id, PSPAnnouncementModel $model): array|bool {
         if( $model->canCreate() ) {
-            return self::makeCall("/v3/psps/$psp_id/announcements", 'POST', $model->asArray());
+            return self::makeCall("/v3/psps/$psp_id/announcements", 'POST', [], $model->asArray());
         }
         else {
             return false;
@@ -59,7 +59,7 @@ class PSPAnnouncementService extends Service {
      */
     public static function updateAnnouncement($psp_id, $announcement_id, PSPAnnouncementModel $model): array|bool {
         if( $model->canUpdate() ) {
-            return self::makeCall("/v3/psps/$psp_id/announcements/$announcement_id", 'PATCH', $model->asArray());
+            return self::makeCall("/v3/psps/$psp_id/announcements/$announcement_id", 'PATCH', [], $model->asArray());
         }
         else {
             return false;

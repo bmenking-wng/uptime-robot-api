@@ -3,14 +3,25 @@
 namespace worlddevs\uptimerobot\Service;
 
 use worlddevs\uptimerobot\UptimeRobot;
-use Psr\Http\Message\ResponseInterface as Response;
 
 class Service {
-    protected static function makeCall(String $path, String $method = 'GET', Array $query = [], String $body = null, Array $additional_headers = []): Array {
+    protected static function makeCall(String $path, String $method = 'GET', Array $query = [], Array $body = []): Array {
         $guzzle = UptimeRobot::getInstance();
+        $options = [];
 
-        return json_decode($guzzle->request($method, $path, [
-            'query'=>$query
-        ])->getBody()->getContents(), true);
+        if( $method == 'POST' || $method == 'PUT' || $method == 'PATCH') {
+            if( !empty($body) ) {
+                $options['json'] = $body;
+            }
+        }
+        else {
+            if( !empty($query) ) {
+                $options['query'] = $query;
+            }
+        }
+
+        $response = $guzzle->request($method, $path, $options);
+
+        return json_decode($response->getBody()->getContents(), true);
     }
 }

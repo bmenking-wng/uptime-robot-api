@@ -24,7 +24,7 @@ class IntegrationService extends Service {
      */
     public static function create(IntegrationModel $model): array|bool {
         if( $model->canCreate() ) {
-            return self::makeCall("/v3/integrations", 'POST', $model->asArray());
+            return self::makeCall("/v3/integrations", 'POST', [], $model->asArray());
         }
         else {
             return false;
@@ -57,7 +57,7 @@ class IntegrationService extends Service {
      */
     public static function update($id, IntegrationModel $model): array|bool {
         if( $model->canUpdate() ) {
-            return self::makeCall("/v3/integrations/$id", 'PATCH', $model->asArray);
+            return self::makeCall("/v3/integrations/$id", 'PATCH', [], $model->asArray);
         }
         else {
             return false;

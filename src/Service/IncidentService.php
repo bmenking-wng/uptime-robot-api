@@ -43,7 +43,7 @@ class IncidentService extends Service {
             'content'=>$comment
         ];
 
-        return self::makeCall("/v3/incidents/$id/comments", 'POST', $data);
+        return self::makeCall("/v3/incidents/$id/comments", 'POST', [], $data);
     }
 
     /**
@@ -86,6 +86,6 @@ class IncidentService extends Service {
             'content'=>$comment
         ];
 
-        return self::makeCall("/v3/incidents/$incident_id/comments/$comment_id", 'PATCH', $data);
+        return self::makeCall("/v3/incidents/$incident_id/comments/$comment_id", 'PATCH', [], $data);
     }
 }

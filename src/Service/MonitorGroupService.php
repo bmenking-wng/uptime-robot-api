@@ -24,7 +24,7 @@ class MonitorGroupService extends Service {
      */
     public static function create(MonitorGroupModel $model): array|bool {
         if( $model->canCreate() ) {
-            return self::makeCall("/v3/monitor-groups", 'POST', $model->asArray());
+            return self::makeCall("/v3/monitor-groups", 'POST', [], $model->asArray());
         }
         else {
             return false;
@@ -57,7 +57,7 @@ class MonitorGroupService extends Service {
      */
     public static function update(String $id, MonitorGroupModel $model): array|bool {
         if( $model->canUpdate() ) {
-            return self::makeCall("/v3/monitor-groups/$id", 'PATCH', $model->asArray());
+            return self::makeCall("/v3/monitor-groups/$id", 'PATCH', [], $model->asArray());
         }
         else {
             return false;

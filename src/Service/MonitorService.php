@@ -57,7 +57,7 @@ class MonitorService extends Service {
      */
     public static function update($id, MonitorModel $model): array|bool {
         if( $model->canUpdate() ) {
-            return self::makeCall("/v3/monitors/$id", 'PATCH', $model->asArray());
+            return self::makeCall("/v3/monitors/$id", 'PATCH', [], $model->asArray());
         }
         else {
             return false;
@@ -71,7 +71,7 @@ class MonitorService extends Service {
      */
     public static function create(MonitorModel $model): array|bool {
         if( $model->canCreate() ) {
-            return self::makeCall("/v3/monitors", 'POST', $model->asArray());
+            return self::makeCall("/v3/monitors", 'POST', [], $model->asArray());
         }
         else {
             return false;

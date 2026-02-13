@@ -28,7 +28,7 @@ class PublicStatusPageService extends Service {
      */
     public static function create(PublicStatusPageModel $model): array|bool {
         if( $model->canCreate() ) {
-            return self::makeCall("/v3/psps", 'POST', $model->asArray());
+            return self::makeCall("/v3/psps", 'POST', [], $model->asArray());
         }
         else {
             return false;
@@ -61,7 +61,7 @@ class PublicStatusPageService extends Service {
      */
     public static function update($id, PublicStatusPageModel $model): array|bool {
         if( $model->canUpdate() ) {
-            return self::makeCall("/v3/psps/$id", 'PATCH', $model->asArray());
+            return self::makeCall("/v3/psps/$id", 'PATCH', [], $model->asArray());
         }
         else {
             return false;
