@@ -57,7 +57,7 @@ class IntegrationService extends Service {
      */
     public static function update($id, IntegrationModel $model): array|bool {
         if( $model->canUpdate() ) {
-            return self::makeCall("/v3/integrations/$id", 'PATCH', [], $model->asArray);
+            return self::makeCall("/v3/integrations/$id", 'PATCH', [], $model->asArray());
         }
         else {
             return false;

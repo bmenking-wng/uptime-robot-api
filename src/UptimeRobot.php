@@ -7,7 +7,7 @@ use GuzzleHttp\Client as GuzzleClient;
 class UptimeRobot extends GuzzleClient {
     private static ?UptimeRobot $instance = null;
 
-    public static function getInstance() {
+    public static function getInstance(): UptimeRobot {
         if( self::$instance == null ) {
             $options = array_merge(Environment::getOptions(), [
                 'base_uri'=>Environment::getEndpoint(),

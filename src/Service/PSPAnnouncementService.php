@@ -13,7 +13,7 @@ class PSPAnnouncementService extends Service {
     /**
      * List all announcements for a Public Status Page. Results are sorted by creation date (newest first) and can be filtered by status.
      * @param mixed $id 
-     * @param null|worlddevs\uptimerobot\PSPAnnouncementType $status 
+     * @param null|\worlddevs\uptimerobot\Type\PSPAnnouncementType $status 
      * @param string $cursor 
      * @return array 
      */

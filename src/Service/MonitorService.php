@@ -93,7 +93,7 @@ class MonitorService extends Service {
      * @param mixed $id 
      * @return array 
      */
-    public static function start(int $id): array {
+    public static function start(mixed $id): array {
         return self::makeCall("/v3/monitors/$id/start", 'POST');
     }
 
